@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Next.js Dev Server",
+      "runtimeExecutable": "/Users/jackoconner/.nvm/versions/node/v20.20.1/bin/node",
+      "runtimeArgs": ["scripts/dev-server.js"],
+      "port": 3000
+    }
+  ]
+}
