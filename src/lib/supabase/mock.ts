@@ -1,4 +1,4 @@
-import { Job, User, JobStatus } from "@/lib/types";
+import { Job, User } from "@/lib/types";
 import { v4 as uuidv4 } from "uuid";
 
 const MOCK_USERS: User[] = [
@@ -10,7 +10,7 @@ const MOCK_USERS: User[] = [
 const now = new Date().toISOString();
 const twoDaysAgo = new Date(Date.now() - 49 * 60 * 60 * 1000).toISOString();
 
-let MOCK_JOBS: Job[] = [
+const MOCK_JOBS: Job[] = [
   {
     id: "job-1",
     status: "scheduling",
@@ -257,7 +257,7 @@ function setMockUser(email: string) {
 
 // Build a chainable query mock
 function createQueryBuilder(table: string) {
-  let filters: Record<string, string> = {};
+  const filters: Record<string, string> = {};
   let isSingle = false;
   let insertData: Record<string, unknown> | null = null;
   let updateData: Record<string, unknown> | null = null;

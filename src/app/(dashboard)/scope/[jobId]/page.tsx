@@ -19,7 +19,7 @@ export default async function ScopePage({ params }: { params: Promise<{ jobId: s
           PCC Meeting Notes — fill in all required fields to submit
         </p>
       </div>
-      <ScopeFormWizard jobId={jobId} userName={user.name} />
+      <ScopeFormWizard />
     </div>
   );
 }

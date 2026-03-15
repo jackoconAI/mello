@@ -1,5 +1,6 @@
 import { getCurrentUser } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { KanbanBoard } from "@/components/kanban/kanban-board";
 import { MOCK_JOBS } from "@/lib/supabase/mock";
 import { createClient } from "@/lib/supabase/server";
@@ -38,12 +39,12 @@ export default async function BoardPage() {
             <p className="text-sm text-gray-500 mt-1">{jobs.length} active jobs</p>
           </div>
           {user.role === "pcc" && (
-            <a
+            <Link
               href="/scope/new"
               className="inline-flex items-center gap-2 h-10 px-4 rounded-lg bg-[#f87b4d] text-white text-sm font-medium hover:bg-[#e5693d] transition-colors shadow-sm"
             >
               + New Scope
-            </a>
+            </Link>
           )}
         </div>
       </div>

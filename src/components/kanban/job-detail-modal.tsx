@@ -4,7 +4,7 @@ import { Job } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { Camera, ExternalLink, MapPin, Phone, Mail, Calendar } from "lucide-react";
+import { Camera, ExternalLink } from "lucide-react";
 
 interface JobDetailModalProps {
   job: Job | null;

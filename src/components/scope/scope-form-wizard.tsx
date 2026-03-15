@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm, FormProvider, type Resolver } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { jobFormSchema, JobFormData, FORM_STEPS } from "@/lib/schemas";
 import { createJob } from "@/lib/actions";
@@ -25,19 +25,13 @@ const STEP_COMPONENTS = [
   StepPccMeeting,
 ];
 
-interface ScopeFormWizardProps {
-  jobId: string;
-  userName: string;
-}
-
-export function ScopeFormWizard({ jobId, userName }: ScopeFormWizardProps) {
+export function ScopeFormWizard() {
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const methods = useForm<JobFormData>({
-    resolver: zodResolver(jobFormSchema) as any,
+    resolver: zodResolver(jobFormSchema) as unknown as Resolver<JobFormData>,
     defaultValues: {
       client_name: "",
       client_phone: "",
@@ -115,7 +109,7 @@ export function ScopeFormWizard({ jobId, userName }: ScopeFormWizardProps) {
         cleaned[key] = value === "" ? null : value;
       }
 
-      const result = await createJob(cleaned as any);
+      const result = await createJob(cleaned as unknown as Parameters<typeof createJob>[0]);
       if (result.error) {
         toast.error(result.error);
         setIsSubmitting(false);

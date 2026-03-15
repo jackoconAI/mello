@@ -1,4 +1,4 @@
-import { createMockClient, MOCK_USERS } from "@/lib/supabase/mock";
+import { MOCK_USERS } from "@/lib/supabase/mock";
 import { createClient } from "@/lib/supabase/server";
 import { User } from "@/lib/types";
 import { cookies } from "next/headers";

@@ -25,7 +25,7 @@ interface KanbanBoardProps {
   userRole: string;
 }
 
-export function KanbanBoard({ initialJobs, visibleColumns, userRole }: KanbanBoardProps) {
+export function KanbanBoard({ initialJobs, visibleColumns }: KanbanBoardProps) {
   const [jobs, setJobs] = useState<Job[]>(initialJobs);
   const [activeJob, setActiveJob] = useState<Job | null>(null);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
